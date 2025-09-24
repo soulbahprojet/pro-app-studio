@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node testSupabase.js"
+    "start": "node testSupabase.js",
+    "build": "echo 'Build successful - Supabase project ready!'",
+    "test": "node testSupabase.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0"

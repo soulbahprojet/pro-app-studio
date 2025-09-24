@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node testSupabase.js",
+    "start": "node src/app.js",
     "build": "echo 'Build successful - Supabase project ready!'",
     "test": "node testSupabase.js"
   },

@@ -1,0 +1,104 @@
+// Firebase Security Rules for Realtime Database
+
+{
+  "rules": {
+    // User presence data
+    "presence": {
+      "$userId": {
+        ".read": true,
+        ".write": "$userId === auth.uid"
+      }
+    },
+    
+    // Chat messages by order ID
+    "chats": {
+      "$orderId": {
+        "messages": {
+          ".read": "auth != null && (root.child('orders').child($orderId).child('customerId').val() === auth.uid || root.child('orders').child($orderId).child('sellerId').val() === auth.uid || root.child('orders').child($orderId).child('courierId').val() === auth.uid)",
+          ".write": "auth != null && (root.child('orders').child($orderId).child('customerId').val() === auth.uid || root.child('orders').child($orderId).child('sellerId').val() === auth.uid || root.child('orders').child($orderId).child('courierId').val() === auth.uid)",
+          "$messageId": {
+            ".validate": "newData.hasChildren(['senderId', 'message', 'timestamp']) && newData.child('senderId').val() === auth.uid"
+          }
+        }
+      }
+    },
+    
+    // Real-time notifications
+    "notifications": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "auth != null",
+        "$notificationId": {
+          ".validate": "newData.hasChildren(['title', 'message', 'timestamp']) && (newData.child('userId').val() === auth.uid || auth != null)"
+        }
+      }
+    },
+    
+    // Order tracking locations
+    "orderTracking": {
+      "$orderId": {
+        "location": {
+          ".read": "auth != null && (root.child('orders').child($orderId).child('customerId').val() === auth.uid || root.child('orders').child($orderId).child('sellerId').val() === auth.uid || root.child('orders').child($orderId).child('courierId').val() === auth.uid)",
+          ".write": "auth != null && root.child('orders').child($orderId).child('courierId').val() === auth.uid",
+          ".validate": "newData.hasChildren(['lat', 'lng', 'timestamp'])"
+        }
+      }
+    },
+    
+    // FCM Tokens for push notifications
+    "fcmTokens": {
+      "$userId": {
+        ".read": "$userId === auth.uid || auth.token.admin === true",
+        ".write": "$userId === auth.uid",
+        ".validate": "newData.isString() && newData.val().length > 10"
+      }
+    },
+    
+    // User status and activity
+    "userStatus": {
+      "$userId": {
+        ".read": true,
+        ".write": "$userId === auth.uid",
+        ".validate": "newData.hasChildren(['status', 'lastSeen'])"
+      }
+    },
+    
+    // Live delivery tracking
+    "deliveryTracking": {
+      "$deliveryId": {
+        ".read": "auth != null",
+        ".write": "auth != null && (auth.token.courier === true || auth.token.admin === true)",
+        "location": {
+          ".validate": "newData.hasChildren(['lat', 'lng', 'timestamp', 'courierId'])"
+        },
+        "status": {
+          ".validate": "newData.isString() && (newData.val() === 'pending' || newData.val() === 'picked_up' || newData.val() === 'in_transit' || newData.val() === 'delivered')"
+        }
+      }
+    },
+    
+    // System status and maintenance
+    "system": {
+      "status": {
+        ".read": true,
+        ".write": "auth != null && auth.token.admin === true"
+      },
+      "maintenance": {
+        ".read": true,
+        ".write": "auth != null && auth.token.admin === true"
+      }
+    },
+    
+    // Analytics and metrics (admin only)
+    "analytics": {
+      ".read": "auth != null && auth.token.admin === true",
+      ".write": "auth != null && auth.token.admin === true"
+    },
+    
+    // Default fallback - deny all other access
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}

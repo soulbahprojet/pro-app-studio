@@ -1,0 +1,82 @@
+// Info.plist configuration pour 224Solutions iOS
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Configuration de base de l'app -->
+    <key>CFBundleDisplayName</key>
+    <string>224Solutions</string>
+    
+    <key>CFBundleIdentifier</key>
+    <string>com.lovable.224solutions</string>
+    
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    
+    <!-- Token Mapbox iOS sécurisé -->
+    <key>MGLMapboxAccessToken</key>
+    <string>ACCESS_TOKEN_IOS</string>
+    
+    <!-- Permissions de localisation requises -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>224Solutions utilise votre localisation pour vous connecter aux services de livraison, taxi moto et logistique à proximité.</string>
+    
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>224Solutions a besoin d'accéder à votre localisation pour optimiser les services de transport et de livraison.</string>
+    
+    <!-- Permissions réseau -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>api.mapbox.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
+        </dict>
+    </dict>
+    
+    <!-- Configuration camera pour scan QR codes transitaires -->
+    <key>NSCameraUsageDescription</key>
+    <string>224Solutions utilise l'appareil photo pour scanner les codes QR des colis lors des opérations de logistique internationale.</string>
+    
+    <!-- Configuration microphone pour appels -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>224Solutions utilise le microphone pour les appels entre chauffeurs et clients.</string>
+    
+    <!-- Orientation supportée -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    
+    <!-- Background modes pour GPS tracking -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+        <string>background-fetch</string>
+        <string>remote-notification</string>
+    </array>
+    
+    <!-- URL Schemes pour deep linking -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.lovable.224solutions</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>224solutions</string>
+            </array>
+        </dict>
+    </array>
+    
+</dict>
+</plist>

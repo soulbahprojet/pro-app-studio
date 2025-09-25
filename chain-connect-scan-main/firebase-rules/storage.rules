@@ -1,0 +1,81 @@
+// Firebase Security Rules for Storage
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // User avatars - users can upload their own avatars
+    match /avatars/{userId}/{fileName} {
+      allow read: if true; // Public read for avatars
+      allow write: if request.auth != null 
+        && request.auth.uid == userId
+        && request.resource.size < 5 * 1024 * 1024 // 5MB limit
+        && request.resource.contentType.matches('image/.*');
+    }
+    
+    // Shop banners and images
+    match /shops/{shopId}/{folder}/{fileName} {
+      allow read: if true; // Public read for shop images
+      allow write: if request.auth != null
+        && request.resource.size < 10 * 1024 * 1024 // 10MB limit
+        && (request.resource.contentType.matches('image/.*') || request.resource.contentType.matches('video/.*'));
+    }
+    
+    // Product images
+    match /products/{sellerId}/{productId}/images/{fileName} {
+      allow read: if true; // Public read for product images
+      allow write: if request.auth != null 
+        && request.auth.uid == sellerId
+        && request.resource.size < 10 * 1024 * 1024 // 10MB limit
+        && request.resource.contentType.matches('image/.*');
+    }
+    
+    // Chat images and files
+    match /chats/{orderId}/images/{fileName} {
+      allow read: if request.auth != null; // Only authenticated users
+      allow write: if request.auth != null
+        && request.resource.size < 20 * 1024 * 1024; // 20MB limit for chat files
+    }
+    
+    // Verification documents (KYC)
+    match /verification/{userId}/{documentType}/{fileName} {
+      allow read: if request.auth != null 
+        && (request.auth.uid == userId || request.auth.token.admin == true);
+      allow write: if request.auth != null 
+        && request.auth.uid == userId
+        && request.resource.size < 15 * 1024 * 1024 // 15MB limit
+        && (request.resource.contentType.matches('image/.*') || request.resource.contentType == 'application/pdf');
+    }
+    
+    // Order related files (invoices, receipts, etc.)
+    match /orders/{orderId}/files/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+        && request.resource.size < 25 * 1024 * 1024; // 25MB limit
+    }
+    
+    // Temporary uploads (expire after 24h)
+    match /temp/{userId}/{fileName} {
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId
+        && request.resource.size < 50 * 1024 * 1024; // 50MB limit for temp files
+    }
+    
+    // Admin only files
+    match /admin/{fileName} {
+      allow read, write: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // System backups (admin only)
+    match /backups/{fileName} {
+      allow read, write: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // Default fallback - deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

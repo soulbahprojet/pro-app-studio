@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 0% 20%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 0 0% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 9%;
+
+    /* Design tokens - Palette moderne et harmonieuse */
+    --gradient-primary: linear-gradient(135deg, hsl(240 100% 25%) 0%, hsl(260 100% 35%) 50%, hsl(280 100% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 100% 60%) 0%, hsl(180 100% 70%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 100% 25%) 0%, hsl(260 100% 35%) 30%, hsl(280 100% 45%) 70%, hsl(300 100% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(240 50% 98%) 100%);
+    
+    /* Couleurs par fonctionnalité - Palette moderne */
+    --client-primary: 210 100% 75%; /* Bleu ciel moderne */
+    --client-foreground: 0 0% 9%;
+    --seller-primary: 140 80% 70%; /* Vert émeraude */
+    --seller-foreground: 0 0% 9%;
+    --courier-primary: 25 100% 70%; /* Orange corail */
+    --courier-foreground: 0 0% 9%;
+    --transitaire-primary: 270 80% 75%; /* Violet améthyste */
+    --transitaire-foreground: 0 0% 9%;
+    --wallet-primary: 50 100% 75%; /* Or moderne */
+    --wallet-foreground: 0 0% 9%;
+    --admin-primary: 0 80% 70%; /* Rouge rubis */
+    --admin-foreground: 0 0% 9%;
+    
+    /* Couleurs d'accent supplémentaires */
+    --success-primary: 150 100% 70%;
+    --warning-primary: 40 100% 70%;
+    --info-primary: 200 100% 70%;
+    
+    /* Professional gradients */
+    --gradient-start: hsl(0 0% 9%);
+    --gradient-end: hsl(0 0% 15%);
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 40px hsl(0 0% 0% / 0.05);
+    --shadow-accent: 0 5px 20px -5px hsl(0 0% 0% / 0.1);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --primary-glow: 0 0% 80%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 9%;
+    --accent-glow: 0 0% 80%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 98%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(240 100% 85%) 0%, hsl(260 100% 80%) 50%, hsl(280 100% 75%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 100% 40%) 0%, hsl(180 100% 30%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 100% 85%) 0%, hsl(260 100% 80%) 30%, hsl(280 100% 75%) 70%, hsl(300 100% 70%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 50% 8%) 0%, hsl(260 40% 12%) 100%);
+    
+    /* Mode sombre - Couleurs par fonctionnalité harmonieuses */
+    --client-primary: 210 100% 25%; /* Bleu profond */
+    --client-foreground: 0 0% 100%;
+    --seller-primary: 140 80% 30%; /* Vert émeraude foncé */
+    --seller-foreground: 0 0% 100%;
+    --courier-primary: 25 100% 30%; /* Orange corail foncé */
+    --courier-foreground: 0 0% 100%;
+    --transitaire-primary: 270 80% 25%; /* Violet améthyste foncé */
+    --transitaire-foreground: 0 0% 100%;
+    --wallet-primary: 50 100% 25%; /* Or foncé */
+    --wallet-foreground: 0 0% 100%;
+    --admin-primary: 0 80% 30%; /* Rouge rubis foncé */
+    --admin-foreground: 0 0% 100%;
+    
+    /* Couleurs d'accent supplémentaires mode sombre */
+    --success-primary: 150 100% 30%;
+    --warning-primary: 40 100% 30%;
+    --info-primary: 200 100% 30%;
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(0 0% 98% / 0.1);
+    --shadow-accent: 0 5px 20px -5px hsl(0 0% 98% / 0.1);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

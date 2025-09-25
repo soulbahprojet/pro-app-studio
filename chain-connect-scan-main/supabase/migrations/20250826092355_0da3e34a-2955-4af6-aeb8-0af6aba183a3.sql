@@ -1,0 +1,25 @@
+-- Supprimer seulement les tables qui existent
+DELETE FROM public.employees WHERE TRUE;
+DELETE FROM public.favorites WHERE TRUE;
+DELETE FROM public.conversations WHERE TRUE;
+DELETE FROM public.badges WHERE TRUE;
+DELETE FROM public.delivery_tracking WHERE TRUE;
+DELETE FROM public.escrow_transactions WHERE TRUE;
+DELETE FROM public.digital_access WHERE TRUE;
+DELETE FROM public.digital_sales WHERE TRUE;
+DELETE FROM public.draft_orders WHERE TRUE;
+DELETE FROM public.affiliates WHERE TRUE;
+DELETE FROM public.affiliate_commissions WHERE TRUE;
+DELETE FROM public.virtual_cards WHERE TRUE;
+DELETE FROM public.card_transactions WHERE TRUE;
+DELETE FROM public.card_notifications WHERE TRUE;
+DELETE FROM public.card_daily_usage WHERE TRUE;
+DELETE FROM public.inventory WHERE TRUE;
+DELETE FROM public.transactions WHERE TRUE;
+DELETE FROM public.orders WHERE TRUE;
+DELETE FROM public.products WHERE TRUE;
+DELETE FROM public.seller_shops WHERE TRUE;
+DELETE FROM public.digital_shops WHERE TRUE;
+DELETE FROM public.digital_categories WHERE TRUE;
+DELETE FROM public.wallets WHERE TRUE;
+DELETE FROM public.profiles WHERE TRUE;

@@ -1,0 +1,45 @@
+<!-- AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.224solutions.app">
+
+    <!-- Permissions requises pour 224Solutions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <!-- Configuration Token Mapbox Android 224Solutions -->
+        <meta-data
+            android:name="com.mapbox.token"
+            android:value="ACCESS_TOKEN_ANDROID" />
+
+        <!-- Restrictions de sécurité -->
+        <meta-data
+            android:name="com.mapbox.sdk.PACKAGE_NAME"
+            android:value="com.224solutions.app" />
+
+        <activity
+            android:name=".maps.MapActivity"
+            android:exported="true"
+            android:label="224Solutions Map"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Service de géolocalisation en arrière-plan -->
+        <service
+            android:name=".services.LocationTrackingService"
+            android:enabled="true"
+            android:exported="false" />
+
+    </application>
+</manifest>

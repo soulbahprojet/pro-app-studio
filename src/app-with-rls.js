@@ -1,4 +1,4 @@
-import { supabase } from './integrations/supabase/client';
+import { supabase } from './integrations/supabase/client.js';
 import { setupDatabase, createProductSafe, getProductsSafe } from './lib/supabase-setup.js';
 
 /**

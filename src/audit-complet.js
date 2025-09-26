@@ -1,4 +1,4 @@
-import { supabase } from './integrations/supabase/client';
+import { supabase } from './integrations/supabase/client.js';
 
 /**
  * Audit complet du système 224Solutions

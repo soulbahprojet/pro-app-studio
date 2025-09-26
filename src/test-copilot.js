@@ -1,4 +1,4 @@
-import { supabase } from './integrations/supabase/client';
+import { supabase } from './integrations/supabase/client.js';
 
 /**
  * Test spécifique du copilote AI et de ses intégrations

@@ -1,47 +1,71 @@
 import React from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import ClientInterface from '
-            param($matches)
-            $componentPath = $matches[1].Replace('/', '\')
-            $absolutePath = Join-Path -Path $PWD -ChildPath "src\components\$componentPath"
-            $relativePath = [IO.Path]::GetRelativePath($dir, $absolutePath) -replace '\\','/'
-            return $relativePath
-        
-import { Navigate } from 'react-router-dom';
-import { AppDownloadBanner } from '
-            param($matches)
-            $componentPath = $matches[1].Replace('/', '\')
-            $absolutePath = Join-Path -Path $PWD -ChildPath "src\components\$componentPath"
-            $relativePath = [IO.Path]::GetRelativePath($dir, $absolutePath) -replace '\\','/'
-            return $relativePath
-        
+import { useAuth } from '@/hooks/useAuth';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export default function ClientHome() {
-  const { user, profile, loading } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-          <p className="mt-4 text-muted-foreground">Chargement...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/auth" replace />;
-  }
-
-  if (profile?.role !== 'client') {
-    return <Navigate to="/" replace />;
-  }
+  const { user } = useAuth();
 
   return (
-    <div className="space-y-4">
-      <AppDownloadBanner />
-      <ClientInterface />
+    <div className="container mx-auto p-4">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold mb-4">Bienvenue sur 224Solutions</h1>
+        <p className="text-lg text-gray-600">
+          Votre plateforme de services et marketplace en ligne
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <CardTitle>🛒 Marketplace</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mb-4">Découvrez nos produits et services</p>
+            <Link to="/marketplace">
+              <Button className="w-full">Accéder au Marketplace</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <CardTitle>🚚 Services de Livraison</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mb-4">Services de transport et livraison</p>
+            <Link to="/services">
+              <Button className="w-full">Voir les Services</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <CardTitle>👤 Mon Profil</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mb-4">Gérez votre compte et préférences</p>
+            <Link to="/profile">
+              <Button className="w-full">Mon Profil</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+
+      {user && (
+        <div className="mt-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Bienvenue, {user.email}!</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Vous êtes connecté avec succès à 224Solutions.</p>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }

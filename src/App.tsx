@@ -15,21 +15,21 @@ import VendorDashboard from './pages/VendorDashboard';
 import VendorProductsPage from './pages/vendor/VendorProductsPage';
 import VendorCustomersPage from './pages/vendor/VendorCustomersPage';
 import { useAuth } from '@/hooks/useAuth';
-import { Toaster } from "../ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 
 const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
-  
+
   if (loading) {
     return <div className="flex items-center justify-center min-h-screen">Chargement...</div>;
   }
-  
+
   if (!user) {
     return <Login />;
   }
-  
+
   return <>{children}</>;
 };
 

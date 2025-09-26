@@ -1,4 +1,4 @@
-import { supabase } from './lib/supabaseClient.js';
+import { supabase } from './integrations/supabase/client';
 
 // Fonctions CRUD pour products
 export const productService = {

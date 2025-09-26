@@ -1,4 +1,4 @@
-import { supabase } from './lib/supabaseClient.js';
+import { supabase } from './integrations/supabase/client';
 
 /**
  * Version simplifiée pour tester sans modification de la structure de table

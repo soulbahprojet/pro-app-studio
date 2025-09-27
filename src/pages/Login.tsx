@@ -28,10 +28,14 @@ export default function Login() {
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-50">
-            <Card className="w-full max-w-md mx-4">
-                <CardHeader>
-                    <CardTitle className="text-center">Connexion - 224Solutions</CardTitle>
+        <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+            <Card className="w-full max-w-md mx-4 shadow-xl">
+                <CardHeader className="text-center space-y-2">
+                    <div className="mx-auto w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                        <span className="text-primary-foreground font-bold text-lg">224</span>
+                    </div>
+                    <CardTitle className="text-2xl">Connexion</CardTitle>
+                    <p className="text-muted-foreground">Accédez à votre compte 224Solutions</p>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleLogin} className="space-y-4">

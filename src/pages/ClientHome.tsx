@@ -8,15 +8,32 @@ export default function ClientHome() {
   const { user } = useAuth();
 
   return (
-    <div className="w-full">
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">Bienvenue sur 224Solutions</h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Votre plateforme de services et marketplace en ligne
+    <div className="w-full space-y-12">
+      {/* Hero Section */}
+      <div className="text-center space-y-6">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Bienvenue sur 224Solutions
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Votre écosystème digital complet : Marketplace, Transport, Livraison et Services professionnels
         </p>
+        <div className="flex justify-center space-x-8 text-sm text-muted-foreground">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span>Plus de 10 000 produits</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span>Livraison 24h</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <span>Support 24/7</span>
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
             <CardTitle>🛒 Marketplace</CardTitle>

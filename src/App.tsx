@@ -16,6 +16,7 @@ import VendorProductsPage from './pages/vendor/VendorProductsPage';
 import VendorCustomersPage from './pages/vendor/VendorCustomersPage';
 import { useAuth } from '@/hooks/useAuth';
 import { Toaster } from "@/components/ui/toaster";
+import { Header } from '@/components/layout/Header';
 
 const queryClient = new QueryClient();
 
@@ -38,7 +39,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <div className="min-h-screen bg-background">
-          <div className="container mx-auto px-4 py-8 max-w-7xl">
+          <Header />
+          <main className="container mx-auto px-4 py-8 max-w-7xl">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
@@ -55,7 +57,7 @@ function App() {
               <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             </Routes>
-          </div>
+          </main>
           <Toaster />
         </div>
       </Router>

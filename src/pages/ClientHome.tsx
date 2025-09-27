@@ -8,10 +8,10 @@ export default function ClientHome() {
   const { user } = useAuth();
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-8">
+    <div className="w-full">
+      <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold mb-4">Bienvenue sur 224Solutions</h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Votre plateforme de services et marketplace en ligne
         </p>
       </div>

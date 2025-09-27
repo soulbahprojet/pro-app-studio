@@ -28,10 +28,10 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <Card className="w-full max-w-md">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-50">
+            <Card className="w-full max-w-md mx-4">
                 <CardHeader>
-                    <CardTitle>Connexion - 224Solutions</CardTitle>
+                    <CardTitle className="text-center">Connexion - 224Solutions</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleLogin} className="space-y-4">

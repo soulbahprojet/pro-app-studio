@@ -29,10 +29,10 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <Card className="w-full max-w-md">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-50">
+            <Card className="w-full max-w-md mx-4">
                 <CardHeader>
-                    <CardTitle>Inscription - 224Solutions</CardTitle>
+                    <CardTitle className="text-center">Inscription - 224Solutions</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleRegister} className="space-y-4">

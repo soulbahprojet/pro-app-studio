@@ -38,22 +38,24 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <div className="min-h-screen bg-background">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/marketplace" element={<Marketplace />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
-            <Route path="/delivery-dashboard" element={<ProtectedRoute><DeliveryDashboard /></ProtectedRoute>} />
-            <Route path="/transport-dashboard" element={<ProtectedRoute><TransportDashboard /></ProtectedRoute>} />
-            <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
-            <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
-            <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          </Routes>
+          <div className="container mx-auto px-4 py-8 max-w-7xl">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/marketplace" element={<Marketplace />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+              <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+              <Route path="/delivery-dashboard" element={<ProtectedRoute><DeliveryDashboard /></ProtectedRoute>} />
+              <Route path="/transport-dashboard" element={<ProtectedRoute><TransportDashboard /></ProtectedRoute>} />
+              <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
+              <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
+              <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            </Routes>
+          </div>
           <Toaster />
         </div>
       </Router>

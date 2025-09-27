@@ -102,28 +102,26 @@ export default function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="w-full">
-        <Card>
-          <CardContent className="p-12 text-center">
-            <div className="space-y-6">
-              <div className="text-6xl">🛒</div>
-              <h2 className="text-2xl font-bold">Votre panier est vide</h2>
-              <p className="text-muted-foreground max-w-md mx-auto">
-                Découvrez nos produits exceptionnels et commencez vos achats sur notre marketplace
-              </p>
-              <Button onClick={() => navigate('/marketplace')} size="lg">
-                <ShoppingBag className="mr-2" size={20} />
-                Continuer mes achats
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <Card>
+        <CardContent className="p-12 text-center">
+          <div className="space-y-6">
+            <div className="text-6xl">🛒</div>
+            <h2 className="text-2xl font-bold">Votre panier est vide</h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Découvrez nos produits exceptionnels et commencez vos achats sur notre marketplace
+            </p>
+            <Button onClick={() => navigate('/marketplace')} size="lg">
+              <ShoppingBag className="mr-2" size={20} />
+              Continuer mes achats
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   return (
-    <div className="w-full space-y-6">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>

@@ -137,7 +137,7 @@ export default function Marketplace() {
   }
 
   return (
-    <div className="w-full space-y-6">
+    <div className="space-y-6">
       {/* Header avec titre et statistiques */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold">Marketplace 224Solutions</h1>

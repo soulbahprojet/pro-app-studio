@@ -40,28 +40,143 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="min-h-screen bg-background">
-          <Header />
-          <main className="container mx-auto px-4 py-8 max-w-7xl">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/marketplace" element={<Marketplace />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-              <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
-              <Route path="/delivery-dashboard" element={<ProtectedRoute><DeliveryDashboard /></ProtectedRoute>} />
-              <Route path="/transport-dashboard" element={<ProtectedRoute><TransportDashboard /></ProtectedRoute>} />
-              <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
-              <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
-              <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
-              <Route path="/syndicat-bureau" element={<ProtectedRoute><SyndicatBureau /></ProtectedRoute>} />
-              <Route path="/freight-dashboard" element={<ProtectedRoute><FreightDashboard /></ProtectedRoute>} />
-              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            </Routes>
-          </main>
+        <div className="min-h-screen bg-gray-50">
+          <Routes>
+            <Route path="/" element={
+              <div>
+                <Header />
+                <main className="container mx-auto px-4 py-8 max-w-7xl">
+                  <Home />
+                </main>
+              </div>
+            } />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/services" element={
+              <div>
+                <Header />
+                <main className="container mx-auto px-4 py-8 max-w-7xl">
+                  <Services />
+                </main>
+              </div>
+            } />
+            <Route path="/marketplace" element={
+              <div>
+                <Header />
+                <main className="container mx-auto px-4 py-8 max-w-7xl">
+                  <Marketplace />
+                </main>
+              </div>
+            } />
+            <Route path="/product/:id" element={
+              <div>
+                <Header />
+                <main className="container mx-auto px-4 py-8 max-w-7xl">
+                  <ProductDetails />
+                </main>
+              </div>
+            } />
+            <Route path="/cart" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <Cart />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/payment" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <Payment />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/delivery-dashboard" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <DeliveryDashboard />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/transport-dashboard" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <TransportDashboard />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/vendor-dashboard" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <VendorDashboard />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/vendor/products" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <VendorProductsPage />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/vendor/customers" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <VendorCustomersPage />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/syndicat-bureau" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <SyndicatBureau />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/freight-dashboard" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <FreightDashboard />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <div>
+                  <Header />
+                  <main className="container mx-auto px-4 py-8 max-w-7xl">
+                    <Profile />
+                  </main>
+                </div>
+              </ProtectedRoute>
+            } />
+          </Routes>
           <Toaster />
         </div>
       </Router>

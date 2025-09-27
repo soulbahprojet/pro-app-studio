@@ -52,33 +52,96 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
+  
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gray-50 text-gray-900;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  #root {
+    min-height: 100vh;
+    width: 100%;
   }
   
   /* Images responsives */
   img {
-    @apply max-w-full h-auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
   
   /* Conteneur responsive */
   .container {
-    @apply w-full max-w-7xl mx-auto px-4;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Reset des marges */
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
   }
 }
 
 @layer components {
   /* Layout utilities */
   .page-container {
-    @apply w-full max-w-4xl mx-auto px-4 py-8;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
   }
   
   .centered-content {
-    @apply flex flex-col items-center justify-center text-center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   .responsive-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .responsive-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  
+  /* Lovable specific fixes */
+  .lovable-container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .lovable-page {
+    padding: 1rem;
+    min-height: calc(100vh - 2rem);
   }
 }

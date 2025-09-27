@@ -40,28 +40,25 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="min-h-screen bg-background">
-          <Header />
-          <main className="container mx-auto px-4 py-6">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/marketplace" element={<Marketplace />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-              <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
-              <Route path="/delivery-dashboard" element={<ProtectedRoute><DeliveryDashboard /></ProtectedRoute>} />
-              <Route path="/transport-dashboard" element={<ProtectedRoute><TransportDashboard /></ProtectedRoute>} />
-              <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
-              <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
-              <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
-              <Route path="/syndicat-bureau" element={<ProtectedRoute><SyndicatBureau /></ProtectedRoute>} />
-              <Route path="/freight-dashboard" element={<ProtectedRoute><FreightDashboard /></ProtectedRoute>} />
-              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            </Routes>
-          </main>
+        <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+            <Route path="/delivery-dashboard" element={<ProtectedRoute><DeliveryDashboard /></ProtectedRoute>} />
+            <Route path="/transport-dashboard" element={<ProtectedRoute><TransportDashboard /></ProtectedRoute>} />
+            <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
+            <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
+            <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
+            <Route path="/syndicat-bureau" element={<ProtectedRoute><SyndicatBureau /></ProtectedRoute>} />
+            <Route path="/freight-dashboard" element={<ProtectedRoute><FreightDashboard /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          </Routes>
           <Toaster />
         </div>
       </Router>

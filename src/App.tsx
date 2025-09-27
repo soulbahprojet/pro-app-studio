@@ -14,6 +14,8 @@ import Profile from './pages/Profile';
 import VendorDashboard from './pages/VendorDashboard';
 import VendorProductsPage from './pages/vendor/VendorProductsPage';
 import VendorCustomersPage from './pages/vendor/VendorCustomersPage';
+import SyndicatBureau from './pages/SyndicatBureau';
+import FreightDashboard from './pages/FreightDashboard';
 import { useAuth } from '@/hooks/useAuth';
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from '@/components/layout/Header';
@@ -55,6 +57,8 @@ function App() {
               <Route path="/vendor-dashboard" element={<ProtectedRoute><VendorDashboard /></ProtectedRoute>} />
               <Route path="/vendor/products" element={<ProtectedRoute><VendorProductsPage /></ProtectedRoute>} />
               <Route path="/vendor/customers" element={<ProtectedRoute><VendorCustomersPage /></ProtectedRoute>} />
+              <Route path="/syndicat-bureau" element={<ProtectedRoute><SyndicatBureau /></ProtectedRoute>} />
+              <Route path="/freight-dashboard" element={<ProtectedRoute><FreightDashboard /></ProtectedRoute>} />
               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             </Routes>
           </main>

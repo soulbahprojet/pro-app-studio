@@ -59,7 +59,7 @@ export const Header: React.FC = () => {
       roles: ['admin', 'bureau', 'all']
     },
     { 
-      path: '/freight', 
+      path: '/freight-dashboard', 
       label: 'Transitaire', 
       icon: <Globe size={18} />,
       roles: ['freight', 'all']
